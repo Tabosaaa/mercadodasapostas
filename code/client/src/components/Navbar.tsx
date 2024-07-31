@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import logo from "../assets/logo.png";
+
+
 interface OpenCartButtonProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -13,7 +16,7 @@ const Navbar: React.FC<OpenCartButtonProps> = ({ setOpen }) => {
           <a href="/">
             <img
               className="w-auto h-6 sm:h-7"
-              src="https://merakiui.com/images/full-logo.svg"
+              src={logo}
               alt="Logo"
             />
           </a>
