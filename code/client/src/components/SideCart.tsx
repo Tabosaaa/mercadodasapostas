@@ -46,12 +46,12 @@ interface SideCartProps {
 }
 
 const SideCart: React.FC<SideCartProps> = ({ open, setOpen }) => {
-    
+
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
+    <Dialog open={open} onClose={setOpen} className="relative z-50 sm:w-full">
       <DialogBackdrop
         transition
-        className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-500 ease-in-out data-[closed]:opacity-0"
+        className="fixed sm:w-full inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-500 ease-in-out data-[closed]:opacity-0"
       />
 
       <div className="fixed inset-0 overflow-hidden">
@@ -102,8 +102,10 @@ const SideCart: React.FC<SideCartProps> = ({ open, setOpen }) => {
                                 <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                               </div>
                               <div className="flex flex-1 items-end justify-between text-sm">
-                                <p className="text-gray-500">Qty {product.quantity}</p>
-
+                                <div className='flex gap-3'>
+                                <p className="text-gray-500">Qty</p>
+                                <input type='number' className='w-7 border rounded-md text-center'/>
+                                </div>
                                 <div className="flex">
                                   <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
                                     Remove
