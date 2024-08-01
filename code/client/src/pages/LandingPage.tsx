@@ -3,6 +3,7 @@ import Categories from "../components/Categories";
 import ProductCard from "../components/ProductCard";
 import SideCart from "../components/SideCart";
 import { useState } from "react";
+import { products } from "../services/Products";
 
 const LandingPage: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -11,11 +12,15 @@ const LandingPage: React.FC = () => {
     <>
       <Navbar setOpen={setOpen} />
       <div className="grid lg:grid-cols4 md:grid-cols-3 sm:grid-cols-2 gap-5 items-baseline mt-3  ">
-       <ProductCard/>
-       <ProductCard/>
-       <ProductCard/>
-       <ProductCard/>
-       <ProductCard/>
+        {products.map((product) => (
+          <ProductCard
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            description={product.description}
+            imageSrc={product.imageSrc}
+          />
+        ))}
       </div>
       <SideCart open={open} setOpen={setOpen} />
     </>

@@ -1,34 +1,27 @@
 import React from 'react';
+import { ProductCardInterface } from '../interfaces/ProductCardInterface';
 
-
-interface ProductCardProps {
-  name: string;
-  price: string;
-  description: string;
-  imageSrc: string;
-}
-
-const ProductCard: React.FC<ProductCardProps> = (props:ProductCardProps) => {
+const ProductCard: React.FC<ProductCardInterface> = ({ id, name, price, description, imageSrc }) => {
   return (
-    <div className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-      <div className="relative mx-4 mt-4 h-80 x-full overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
+    <div className="relative flex flex-col h-full rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+      <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
         <img
-          src={props.imageSrc}
-          className="h-full w-full object-cover"
-          alt={props.name}
+          src={imageSrc}
+          className="h-full w-full object-cover object-center"
+          alt={name}
         />
       </div>
-      <div className="p-6">
+      <div className="p-6 flex-1 flex flex-col">
         <div className="mb-2 flex items-center justify-between">
           <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-            {props.name}
+            {name}
           </p>
           <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-            {props.price}
+            {price}
           </p>
         </div>
-        <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-          {props.description}
+        <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75 flex-grow">
+          {description}
         </p>
       </div>
       <div className="p-6 pt-0">
