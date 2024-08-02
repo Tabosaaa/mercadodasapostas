@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import logo from "../assets/logo.png";
-
+import { useSelector } from 'react-redux';
 
 interface OpenCartButtonProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Navbar: React.FC<OpenCartButtonProps> = ({ setOpen }) => {
+  const [totalQuantity, setTotalQuantity] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
+  const carts = useSelector((store: any) => store.cart.items);
+  useEffect(() => {
+    const total = carts.reduce((acc: number, item: any) => acc + item.quantity, 0);
+    setTotalQuantity(total);
+  }, [carts]);
   return (
     <nav className="relative bg-white border-b h-auto">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
@@ -118,7 +123,7 @@ const Navbar: React.FC<OpenCartButtonProps> = ({ setOpen }) => {
                 />
               </svg>
 
-              <span className="absolute -top-3.5 left-3 py-1 px-2 text-xs text-white bg-blue-500 rounded-full flex justify-center items-center">0</span>
+              <span className="absolute -top-3.5 left-3 py-1 px-2 text-xs text-white bg-blue-500 rounded-full flex justify-center items-center">{totalQuantity}</span>
             </a>
           </div>
         </div>

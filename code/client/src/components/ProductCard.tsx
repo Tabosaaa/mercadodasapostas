@@ -1,7 +1,19 @@
 import React from 'react';
 import { ProductCardInterface } from '../interfaces/ProductCardInterface';
+import { useSelector,useDispatch } from 'react-redux';
+import { addToCart } from '../stores/cart';
 
 const ProductCard: React.FC<ProductCardInterface> = ({ id, name, price, description, imageSrc }) => {
+
+  const carts = useSelector((store: any) => store.cart.items);
+  console.log(carts);
+  const dispatch = useDispatch()
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      productId: id,
+      quantity:1,
+    }))
+  }
   return (
     <div className="relative flex flex-col h-full rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
@@ -25,7 +37,7 @@ const ProductCard: React.FC<ProductCardInterface> = ({ id, name, price, descript
         </p>
       </div>
       <div className="p-6 pt-0">
-        <button
+        <button onClick={handleAddToCart}
           className="flex items-center justify-center w-full select-none rounded-lg text-white bg-blue-700 hover:bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           type="button"
         >
