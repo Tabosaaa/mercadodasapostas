@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 
 const SignIn: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
-    <Navbar />
+    <Navbar setOpen={setOpen} />
     <section className="bg-white">
       <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <form className="w-full max-w-md">
