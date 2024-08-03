@@ -6,11 +6,6 @@ import { PrismaClient } from '@prisma/client';
 import {errorMiddleware} from './middlewares/errors';
 import cors from 'cors'; 
 import { createServer } from 'http';
-import crypto from 'crypto';
-
-
-// Carrega as variáveis de ambiente do arquivo .env para o processo
-//dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
@@ -44,7 +39,6 @@ export const prismaClient = new PrismaClient({
 
 app.use(errorMiddleware);
 
-//const port = process.env.PORT || 3000; // Use a porta definida no ambiente ou 3000 se não estiver definida
 
 httpServer.listen(PORT, () => {
     console.log('Server is running on http://localhost:' + PORT);
