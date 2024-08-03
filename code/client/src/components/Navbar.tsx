@@ -76,7 +76,7 @@ const Navbar: React.FC<OpenCartButtonProps> = ({ setOpen }) => {
           } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white md:mt-0 md:p-0 md:top-0 md:relative md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center md:h-full`}
         >
           <div className="flex flex-col md:flex-row md:mx-6 ">
-            <a
+            {/* <a
               className="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0"
               href="#"
             >
@@ -87,19 +87,19 @@ const Navbar: React.FC<OpenCartButtonProps> = ({ setOpen }) => {
               href="#"
             >
               About
-            </a>
+            </a> */}
             <a
               className="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0"
-              href="#"
+              href="/signIn"
             >
-              Sign In
+              Log in
             </a>
             <div className="hidden md:block border-l border-gray-300 h-6 md:mx-3"></div>
             <a
               className="my-2 text-blue-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0"
-              href="#"
+              href="/signUp"
             >
-              Create Account
+              Criar conta
             </a>
           </div>
 

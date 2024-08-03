@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardInterface> = ({ id, name, price, descript
               strokeLinejoin="round"
             />
           </svg>
-          Add to Cart
+          Adicionar ao carrinho
         </button>
       </div>
     </div>

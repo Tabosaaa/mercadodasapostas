@@ -12,7 +12,7 @@ const SignUp: React.FC = () => {
       <section className="bg-white">
         <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
           <form className="w-full max-w-md">
-            <h1 className="mt-3 text-2xl font-semibold text-gray-800 capitalize sm:text-3xl">Sign Up</h1>
+            <h1 className="mt-3 text-2xl font-semibold text-gray-800 capitalize sm:text-3xl">Criar conta</h1>
             <div className="relative flex items-center mt-8">
               <span className="absolute left-4">
                 <FontAwesomeIcon icon={faUser} style={{ color: "#d1d5db" }} />
@@ -94,9 +94,9 @@ const SignUp: React.FC = () => {
             </div>
             <div className="mt-6">
               <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                Sign Up
+                Criar conta
               </button>
-              <p className="mt-4 text-center text-gray-600">Or sign in with</p>
+              <p className="mt-4 text-center text-gray-600">Ou crie uma conta via</p>
               <a
                 href="#"
                 className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg hover:bg-gray-50"
@@ -119,11 +119,11 @@ const SignUp: React.FC = () => {
                     fill="#1976D2"
                   />
                 </svg>
-                <span className="mx-2">Sign up with Google</span>
+                <span className="mx-2">Crie conta via Google</span>
               </a>
               <div className="mt-6 text-center">
                 <a href="/SignIn" className="text-sm text-blue-500 hover:underline">
-                  Already have an account? Sign in
+                  Já tem uma conta? Entre
                 </a>
               </div>
             </div>

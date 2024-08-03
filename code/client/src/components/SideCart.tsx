@@ -34,7 +34,7 @@ const SideCart: React.FC<SideCartProps> = ({ open, setOpen }) => {
               <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                 <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                   <div className="flex items-start justify-between">
-                    <DialogTitle className="text-lg font-medium text-gray-900">Shopping cart</DialogTitle>
+                    <DialogTitle className="text-lg font-medium text-gray-900">Carrinho</DialogTitle>
                     <div className="ml-3 flex h-7 items-center">
                       <button
                         type="button"
@@ -65,10 +65,10 @@ const SideCart: React.FC<SideCartProps> = ({ open, setOpen }) => {
 
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex justify-between text-base font-medium text-gray-900">
-                    <p>Subtotal</p>
+                    <p>Total</p>
                     <p>${totalPrice.toFixed(2)}</p>
                   </div>
-                  <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                  <p className="mt-0.5 text-sm text-gray-500"></p>
                   <div className="mt-6">
                     <a
                       href="#"
@@ -85,7 +85,7 @@ const SideCart: React.FC<SideCartProps> = ({ open, setOpen }) => {
                         onClick={() => setOpen(false)}
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        Continue Shopping
+                        Ver histórico de compras
                         <span aria-hidden="true"> &rarr;</span>
                       </button>
                     </p>
