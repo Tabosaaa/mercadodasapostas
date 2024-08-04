@@ -14,13 +14,13 @@ const authMiddleware = async (req: any, res: Response, next: NextFunction) => {
         next(new UnauthorizedException("Não autorizado",ErrorCode.UNAUTHORIZED));
     } try {
         const payload = jwt.verify(token, JWT_SECRET) as any;
-        const user = await prismaClient.usuario.findFirst({where: {id: payload.id}});
+        const user = await prismaClient.user.findFirst({where: {id: payload.id}});
 
         if (!user){
             next(new UnauthorizedException("Não autorizado",ErrorCode.UNAUTHORIZED));
         }
 
-        req.usuario = user;
+        req.user = user;
         next();
         
     } catch (error) {
