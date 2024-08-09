@@ -12,7 +12,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     try {
         registerSchema.parse(req.body);
 
-        const { email, password, name } = req.body;
+        const { email, password, name, isAdm } = req.body;
 
         let user = await prismaClient.user.findFirst({ where: { email } });
         if (user) {
@@ -23,7 +23,8 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
             data: {
                 email,
                 name,
-                password: hashedPassword
+                password: hashedPassword,
+                isAdm,
             }
         });
 
@@ -61,4 +62,23 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 // Obter usuário atual (rota protegida)
 export const getCurrentUser = async (req: any, res: Response) => {
     res.status(200).json(req.user);
+}
+
+
+export const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id } = req.params;
+        
+        // Check if user exists before attempting to delete
+        const user = await prismaClient.user.findUnique({ where: { id: +id } });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        await prismaClient.user.delete({ where: { id: +id } });
+
+        res.status(204).json({ message: "User deleted successfully" });
+    } catch (error) {
+        next(error);
+    }
 }

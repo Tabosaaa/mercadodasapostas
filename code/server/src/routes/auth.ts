@@ -1,7 +1,7 @@
 import { Router } from "express";
 import Express from "express";
 import cors from "cors"; // Importe o pacote cors
-import { login, register } from "../controller/auth";
+import { deleteUser, login, register } from "../controller/auth";
 import { errorHandler } from "../error-handler";
 import{ getCurrentUser } from "../controller/auth";
 import  authMiddleware  from "../middlewares/auth";
@@ -14,6 +14,7 @@ authRoutes.use(cors({ origin: ["http://localhost:5173" ],}));
 authRoutes.post("/login", errorHandler(login));
 authRoutes.post("/register", errorHandler(register));
 authRoutes.get("/currentUser", authMiddleware, errorHandler(getCurrentUser));
+authRoutes.delete("/deleteUser/:id", errorHandler(deleteUser));
 
 
 export default authRoutes;
